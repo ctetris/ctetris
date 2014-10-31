@@ -1,0 +1,45 @@
+luaTocs测试报告时间为毫秒	时间2014.9.14
+		
+一：实例对象访问测试对比
+		 	反射luaInterface		luaTocs
+windows Editor
+1w	 		77.9				14.9
+request:get_key()	.key	(:get_key())
+10w			541;538;533(406,432,420)	82.9;80;83.9	
+request:set_key(k)
+10w			426;406;411			37.0;36.9;38
+request:set_key(k)
+request:get_key()
+10w			868;907;842			163;180;161
+
+
+二：静态方法测试对比		luaTocs		反射luaInterface
+win
+1w次			0ms				63ms
+10w次			15.999ms			639.999ms
+100w次			170.999ms			6017ms
+
+android
+10w			32ms				608ms
+
+mac
+10w			19.99ms				720ms
+
+ios
+10w			72.078ms			5909.532ms
+
+//luanet 反射方法
+ public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+//绑定方法luatoCS
+   public static int LAdd(LuaState l)
+    {
+        double a= LuaDLL.lua_tonumber(l, 1);
+        double b = LuaDLL.lua_tonumber(l, 2);
+        double c =a+b;
+        LuaDLL.lua_pushnumber(l,c);
+        return 1;
+    }

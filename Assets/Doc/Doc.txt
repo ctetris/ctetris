@@ -1,0 +1,12 @@
+toluaC# 文档
+
+toluaC#基于ulua运行
+
+一：生成meta信息
+1：选择类文件[yclass.cs|namespace.class.txt]，右键=>ToLuaCS/LuaToCS Build To Script（以文件名为生成依据）你可以用UnityEngine.WWW.txt 来生成UnityEngine.WWW的toluacs类
+2：在Assets/Plugin/ToLuaCS/Export/ 或者 Assets/Script/ToLuaCS	下就可以看到生成的ToLuaXXX.cs文件
+
+二：注意。
+ 1：不支持泛型方法。
+ 2：如果有继承的类需要手动生成父类。
+ 3：需要luanet.import_type("")相关类后才能启用toluaCS功能。
